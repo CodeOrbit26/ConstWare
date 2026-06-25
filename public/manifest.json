@@ -1,0 +1,22 @@
+{
+  "name": "ConstWare Enterprise",
+  "short_name": "ConstWare",
+  "description": "Enterprise Construction Management Platform",
+  "theme_color": "#0F172A",
+  "background_color": "#F1F5F9",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/contractor/dashboard",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

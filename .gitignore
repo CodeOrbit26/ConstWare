@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# logs and temp files
+*.log
+*_output.txt
+test_flash.txt
+models_list.txt
+*.swp
