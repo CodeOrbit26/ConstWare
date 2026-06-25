@@ -96,7 +96,7 @@ export function MaterialsView() {
           <Button variant="outline" className="h-14 px-8 rounded-2xl border-primary/20 text-primary font-black uppercase text-[10px] tracking-widest shadow-premium" onClick={() => handleAddStock()}>
             <Plus className="h-5 w-5 mr-3" /> Procure Inventory
           </Button>
-          <Button className="h-14 px-8 bg-slate-950 text-white font-black uppercase text-[10px] tracking-widest rounded-2xl shadow-premium" onClick={() => handleLogUsage(mockMaterials[0])}>
+          <Button className="h-14 px-8 bg-slate-950 text-white font-black uppercase text-[10px] tracking-widest rounded-2xl shadow-premium" onClick={() => handleLogUsage(mockMaterials[0] || undefined)}>
             <Minus className="h-5 w-5 mr-3" /> Record Consumption
           </Button>
         </div>

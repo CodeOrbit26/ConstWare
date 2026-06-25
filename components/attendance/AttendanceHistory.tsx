@@ -14,7 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar as CalendarIcon, Wallet, Clock, UserCheck } from "lucide-react"
 
 export function AttendanceHistory() {
-  const [selectedWorker, setSelectedWorker] = React.useState(mockWorkers[0].id)
+  const [selectedWorker, setSelectedWorker] = React.useState(mockWorkers[0]?.id || '')
   const worker = mockWorkers.find(w => w.id === selectedWorker)
   const days = Array.from({ length: 30 }, (_, i) => i + 1)
 

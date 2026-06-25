@@ -27,7 +27,7 @@ export function KhataEntryPanel({ onSuccess }: { onSuccess?: () => void }) {
   const addTransaction = useFinanceStore(state => state.addTransaction)
   const [amount, setAmount] = React.useState('')
   const [description, setDescription] = React.useState('')
-  const [selectedSite, setSelectedSite] = React.useState(mockSites[0].id)
+  const [selectedSite, setSelectedSite] = React.useState(mockSites[0]?.id || '')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
