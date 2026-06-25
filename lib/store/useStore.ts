@@ -105,7 +105,7 @@ export const useFinanceStore = create<FinanceState>()(
       }
     }),
     {
-      name: 'constware-finance-storage',
+      name: 'constware-finance-storage-v3',
     }
   )
 )
