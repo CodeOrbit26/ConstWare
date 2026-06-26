@@ -12,6 +12,7 @@ import { useQuery } from "@tanstack/react-query"
 import { toast } from "sonner"
 import { getCurrentUserId } from "@/lib/auth/mockAuth"
 import { useFinanceStore } from "@/lib/store/useStore"
+import { AddWorkerModal } from "./AddWorkerModal"
 
 export function DirectoryView() {
   const [search, setSearch] = React.useState("")
@@ -73,7 +74,12 @@ export function DirectoryView() {
       {/* SEARCH + FILTER BAR */}
       <div className="flex flex-col md:flex-row gap-4 items-end w-full mt-4">
         <div className="flex flex-col gap-1.5 flex-1 w-full">
-          <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 pl-1">Search Database</label>
+          <div className="flex items-center justify-between w-full">
+            <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 pl-1">Search Database</label>
+            <div className="md:hidden">
+              <AddWorkerModal />
+            </div>
+          </div>
           <div className="relative w-full">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
             <Input

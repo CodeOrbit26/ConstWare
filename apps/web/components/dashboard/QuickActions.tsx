@@ -52,20 +52,20 @@ const actions = [
 
 export function QuickActions() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
       {actions.map((action) => (
         <Link
           key={action.id}
           href={action.href}
-          className="group relative flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all active:scale-95"
+          className="group relative flex flex-col items-center justify-center p-4 sm:p-6 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all active:scale-95"
         >
           <div className={cn(
-            "h-14 w-14 rounded-full flex items-center justify-center mb-4 transition-transform group-hover:scale-110",
+            "h-10 w-10 sm:h-14 sm:w-14 rounded-full flex items-center justify-center mb-2 sm:mb-4 transition-transform group-hover:scale-110",
             action.color
           )}>
-            <action.icon className="h-6 w-6" />
+            <action.icon className="h-4.5 w-4.5 sm:h-6 sm:w-6" />
           </div>
-          <span className="text-[10px] font-black text-slate-600 dark:text-slate-300 tracking-widest text-center leading-tight">
+          <span className="text-[9px] sm:text-[10px] font-black text-slate-600 dark:text-slate-300 tracking-widest text-center leading-tight">
             {action.title}
           </span>
         </Link>
