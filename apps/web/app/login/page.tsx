@@ -13,9 +13,9 @@ import {
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-screen w-full bg-slate-50 dark:bg-slate-950 font-sans">
+    <div className="flex min-h-screen w-full bg-[#030712] font-sans selection:bg-[#F97316]/10 selection:text-[#F97316]">
       {/* Cinematic Branding Panel */}
-      <div className="hidden lg:flex lg:w-[45%] flex-col justify-between bg-navy p-16 text-white relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-[45%] flex-col justify-between bg-[#090d16] p-16 text-white relative overflow-hidden border-r border-slate-900/50">
         {/* Animated Background Mesh */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary rounded-full blur-3xl animate-pulse"></div>
@@ -71,7 +71,7 @@ export default function LoginPage() {
       </div>
 
       {/* Modern Login Panel */}
-      <div className="flex flex-1 items-center justify-center p-8 sm:p-20 relative bg-white dark:bg-slate-950">
+      <div className="flex flex-1 items-center justify-center p-8 sm:p-20 relative bg-[#030712]">
         {/* Subtle decorative elements for mobile */}
         <div className="lg:hidden absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-blue-600 to-emerald-500"></div>
         
