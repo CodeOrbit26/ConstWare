@@ -2,8 +2,12 @@ import { NextResponse, type NextRequest } from "next/server"
 import { updateSession } from "@/lib/supabase/middleware"
 
 export async function middleware(request: NextRequest) {
+  const isMock = process.env.NEXT_PUBLIC_MOCK_AUTH === "true" ||
+    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder")
+
   // Skip mock auth mode — let everything through
-  if (process.env.NEXT_PUBLIC_MOCK_AUTH === "true") {
+  if (isMock) {
     return NextResponse.next()
   }
 

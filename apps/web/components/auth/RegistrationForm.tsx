@@ -102,7 +102,9 @@ export function RegistrationForm() {
     }
 
     setIsLoading(true)
-    const isMockAuth = process.env.NEXT_PUBLIC_MOCK_AUTH === "true"
+    const isMockAuth = process.env.NEXT_PUBLIC_MOCK_AUTH === "true" ||
+      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder")
 
     if (isMockAuth) {
       try {

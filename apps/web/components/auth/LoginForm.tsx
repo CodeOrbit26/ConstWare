@@ -46,7 +46,9 @@ export function LoginForm() {
   const [forgotMode, setForgotMode] = React.useState(false)
   const [resetEmail, setResetEmail] = React.useState("")
 
-  const isMockAuth = process.env.NEXT_PUBLIC_MOCK_AUTH === "true"
+  const isMockAuth = process.env.NEXT_PUBLIC_MOCK_AUTH === "true" ||
+    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder")
 
   const handleLogin = async (role: string, e: React.FormEvent) => {
     e.preventDefault()
