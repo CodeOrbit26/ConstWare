@@ -1,6 +1,12 @@
 import { createServerClient } from "@supabase/ssr"
 import { NextResponse, type NextRequest } from "next/server"
 
+function isValid(val: string | undefined): boolean {
+  if (!val) return false
+  const clean = val.trim().toLowerCase()
+  return clean !== "" && clean !== "undefined" && clean !== "null"
+}
+
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({
     request: {
@@ -8,8 +14,12 @@ export async function updateSession(request: NextRequest) {
     },
   })
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://placeholder.supabase.co"
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder-key"
+  const supabaseUrl = isValid(process.env.NEXT_PUBLIC_SUPABASE_URL)
+    ? process.env.NEXT_PUBLIC_SUPABASE_URL!
+    : "https://placeholder.supabase.co"
+  const supabaseAnonKey = isValid(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+    ? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    : "placeholder-key"
 
   const supabase = createServerClient(
     supabaseUrl,
