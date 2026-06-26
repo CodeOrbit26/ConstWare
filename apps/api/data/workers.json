@@ -1,0 +1,28 @@
+[
+  {
+    "id": "w1782409072455",
+    "name": "Abhay 1 ",
+    "phone": "2345678",
+    "skill": "Helper",
+    "dailyWage": 400,
+    "assignedSiteId": null,
+    "status": "available",
+    "rating": 0,
+    "kycVerified": false,
+    "completedProjects": 0,
+    "reliabilityScore": 100
+  },
+  {
+    "id": "w1782415373317",
+    "name": "23",
+    "phone": "123",
+    "skill": "Helper",
+    "dailyWage": 123,
+    "assignedSiteId": null,
+    "status": "available",
+    "rating": 0,
+    "kycVerified": false,
+    "completedProjects": 0,
+    "reliabilityScore": 100
+  }
+]

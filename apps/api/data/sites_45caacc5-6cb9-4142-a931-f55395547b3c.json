@@ -1,0 +1,24 @@
+[
+  {
+    "id": "site-1782478703081",
+    "name": "Skyline Heights",
+    "location": "Mumbai, MH",
+    "supervisor": "Amit Sharma",
+    "workers": 0,
+    "todayExpenses": 0,
+    "progress": 0,
+    "health": "green",
+    "budgetTotal": 2500000,
+    "startDate": "2026-01-01",
+    "endDate": "2026-12-31",
+    "description": "",
+    "clientName": "Vikram Malhotra",
+    "clientPhone": "9876543210",
+    "clientEmail": "vikram@skyline.com",
+    "clientAccessId": "CW5JEO22A8D4",
+    "siteAccessCode": "CW5JEO22A8D4",
+    "clientAccessEnabled": true,
+    "status": "active",
+    "createdAt": "2026-06-26T12:58:23.081Z"
+  }
+]

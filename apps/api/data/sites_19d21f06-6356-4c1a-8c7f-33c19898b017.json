@@ -1,0 +1,24 @@
+[
+  {
+    "id": "site-1782472693245",
+    "name": "Gupta BAhwn",
+    "location": "bhind mp",
+    "supervisor": "Abhay",
+    "workers": 0,
+    "todayExpenses": 0,
+    "progress": 0,
+    "health": "green",
+    "budgetTotal": 1000000,
+    "startDate": "2026-06-26",
+    "endDate": "2026-07-10",
+    "description": "",
+    "clientName": "Dharmendra",
+    "clientPhone": "345678987654567",
+    "clientEmail": "vggvh@gmhsbhb",
+    "clientAccessId": "CWLDL8T695D2",
+    "siteAccessCode": "CWLDL8T695D2",
+    "clientAccessEnabled": true,
+    "status": "active",
+    "createdAt": "2026-06-26T11:18:13.246Z"
+  }
+]

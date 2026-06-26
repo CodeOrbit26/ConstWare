@@ -6,15 +6,24 @@
 .pnp.js
 .yarn/install-state.gz
 
+# Turborepo
+.turbo/
+
 # testing
 /coverage
 
 # next.js
 /.next/
 /out/
+apps/web/.next/
+apps/web/out/
 
-# production
+# production / build outputs
 /build
+dist/
+/apps/api/dist/
+/apps/desktop/build/
+/packages/*/dist/
 
 # misc
 .DS_Store
@@ -27,9 +36,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
-
-# vercel
-.vercel
+.env
 
 # typescript
 *.tsbuildinfo

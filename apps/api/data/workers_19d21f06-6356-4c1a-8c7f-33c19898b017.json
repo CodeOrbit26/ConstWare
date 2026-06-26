@@ -1,0 +1,28 @@
+[
+  {
+    "id": "w1782415924188",
+    "name": "er",
+    "phone": "12",
+    "skill": "Helper",
+    "dailyWage": 7876,
+    "assignedSiteId": null,
+    "status": "available",
+    "rating": 0,
+    "kycVerified": false,
+    "completedProjects": 0,
+    "reliabilityScore": 100
+  },
+  {
+    "id": "w1782467698654",
+    "name": "bhu",
+    "phone": "56",
+    "skill": "Helper",
+    "dailyWage": 890,
+    "assignedSiteId": null,
+    "status": "available",
+    "rating": 0,
+    "kycVerified": false,
+    "completedProjects": 0,
+    "reliabilityScore": 100
+  }
+]

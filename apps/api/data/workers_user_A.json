@@ -1,0 +1,14 @@
+[
+  {
+    "id": "w1782415556129",
+    "name": "Worker A",
+    "phone": "12345",
+    "skill": "Mason",
+    "dailyWage": 500,
+    "rating": 0,
+    "kycVerified": false,
+    "completedProjects": 0,
+    "reliabilityScore": 100,
+    "status": "available"
+  }
+]

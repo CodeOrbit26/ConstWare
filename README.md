@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ConstWare Enterprise Monorepo
 
-## Getting Started
+ConstWare is a high-performance, modern construction management SaaS platform built for contractors, site supervisors, and enterprise clients. This repository is structured as a Turborepo monorepo using npm workspaces for type safety, visual components sharing, and build caching.
 
-First, run the development server:
+## Directory Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```text
+Root
+├── apps/
+│   ├── web/                 # Next.js frontend (deployed to Vercel)
+│   ├── api/                 # Express.js REST API (deployed to Render / Docker)
+│   ├── mobile/              # Capacitor wrapper for Android & iOS
+│   └── desktop/             # Electron wrapper for macOS, Windows & Linux
+│
+├── packages/
+│   ├── ui/                  # Reusable Radix/Tailwind styled components
+│   ├── shared/              # Common helpers (Cloudflare R2 Client, Site ID generator)
+│   ├── types/               # TypeScript interfaces shared between frontend & backend
+│   ├── constants/           # Business rules, pricing configurations & Stages
+│   ├── config/              # Shared Tailwind & TSConfig presets
+│   └── eslint-config/       # Unified code styling configuration rules
+│
+├── prisma/                  # Database management & seed scripts
+└── infrastructure/          # Docker, Nginx, deployment manifests
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup & Local Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Requirements
+Ensure you have Node.js v20+ and npm installed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Installation
+Install all package dependencies and link workspace modules:
+```bash
+npm install
+```
 
-## Learn More
+### 3. Setup Database schema (Prisma + Supabase)
+Setup environment variables in a root `.env` file (copied from `.env.example`):
+```bash
+npx prisma db push
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Running the Development environment
+Fire up all services simultaneously using Turborepo:
+```bash
+npm run dev
+```
+- **Next.js Web App**: http://localhost:3001
+- **Express REST API**: http://localhost:3002
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 5. Build and Linting
+To build all applications and packages:
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To run ESLint and typescript validation:
+```bash
+npm run lint
+```
