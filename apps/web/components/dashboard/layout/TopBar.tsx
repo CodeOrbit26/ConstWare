@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { Search, Menu, Sun, Moon, Bell, Activity, Wallet } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,6 +11,11 @@ import { cn } from "@/lib/utils"
 
 export function TopBar({ title, onMenuClick, headerAction }: { title: string; onMenuClick?: () => void; headerAction?: React.ReactNode }) {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark")
@@ -58,6 +64,19 @@ export function TopBar({ title, onMenuClick, headerAction }: { title: string; on
           </Link>
 
           <div className="flex items-center gap-1 lg:gap-2">
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                className="text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl h-10 w-10 flex items-center justify-center transition-all active:scale-95 relative"
+                title="Toggle Theme"
+              >
+                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-amber-500" />
+                <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-blue-400" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            )}
             <NotificationBell />
           </div>
         </div>
