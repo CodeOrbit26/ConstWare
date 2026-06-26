@@ -7,6 +7,8 @@ import { type User } from "@supabase/supabase-js"
 import { Shield } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+import { checkIsMockAuth } from "@/lib/auth/mockAuth"
+
 export function AuthGuard({ children }: { children: React.ReactNode }) {
   const [user, setUser]       = useState<User | null>(null)
   const [loading, setLoading] = useState(false)
@@ -19,9 +21,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   const initialised = useRef(false)
 
   useEffect(() => {
-    const isMock = typeof window !== 'undefined' 
-      ? (process.env.NEXT_PUBLIC_MOCK_AUTH === "true" || !process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder"))
-      : true
+    const isMock = checkIsMockAuth()
 
     const checkUser = async () => {
       let activeUser: any = null

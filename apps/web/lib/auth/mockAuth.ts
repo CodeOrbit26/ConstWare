@@ -152,3 +152,15 @@ export async function getCurrentUserId(): Promise<string> {
   }
   return "anonymous"
 }
+
+export function checkIsMockAuth(): boolean {
+  if (typeof window === "undefined") return true
+  const mockAuthEnv = process.env.NEXT_PUBLIC_MOCK_AUTH
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  
+  if (mockAuthEnv === "true") return true
+  if (!supabaseUrl) return true
+  
+  const cleanUrl = supabaseUrl.trim().toLowerCase()
+  return cleanUrl === "" || cleanUrl === "undefined" || cleanUrl === "null" || cleanUrl.includes("placeholder")
+}

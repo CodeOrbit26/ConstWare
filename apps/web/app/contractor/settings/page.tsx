@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { useRouter } from "next/navigation"
+import { checkIsMockAuth } from "@/lib/auth/mockAuth"
 import DashboardLayout from "@/components/dashboard/layout/DashboardLayout"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -52,9 +53,7 @@ export default function SettingsPage() {
   React.useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const isMock = typeof window !== 'undefined' 
-          ? (process.env.NEXT_PUBLIC_MOCK_AUTH === "true" || !process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder"))
-          : true
+        const isMock = checkIsMockAuth()
 
         const { getCurrentUserId, getMockSession } = await import("@/lib/auth/mockAuth")
         const userId = await getCurrentUserId()

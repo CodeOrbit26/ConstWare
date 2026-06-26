@@ -3,6 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname, useSearchParams, useRouter } from "next/navigation"
+import { checkIsMockAuth } from "@/lib/auth/mockAuth"
 import { cn } from "@/lib/utils"
 import { 
   LayoutDashboard, 
@@ -99,9 +100,7 @@ export function Sidebar({ className, isCollapsed = false, onToggle }: SidebarPro
   const { settings: userSettings } = useSettings()
 
   const handleSignOut = async () => {
-    const isMock = typeof window !== 'undefined' 
-      ? (process.env.NEXT_PUBLIC_MOCK_AUTH === "true" || !process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder"))
-      : true
+    const isMock = checkIsMockAuth()
 
     if (isMock) {
       const { clearMockSession } = await import("@/lib/auth/mockAuth")

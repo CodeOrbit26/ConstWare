@@ -77,6 +77,8 @@ interface MobileDrawerProps {
   onClose: () => void
 }
 
+import { checkIsMockAuth } from "@/lib/auth/mockAuth"
+
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -87,9 +89,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 
   const handleSignOut = async () => {
     onClose()
-    const isMock = typeof window !== 'undefined' 
-      ? (process.env.NEXT_PUBLIC_MOCK_AUTH === "true" || !process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder"))
-      : true
+    const isMock = checkIsMockAuth()
 
     if (isMock) {
       const { clearMockSession } = await import("@/lib/auth/mockAuth")

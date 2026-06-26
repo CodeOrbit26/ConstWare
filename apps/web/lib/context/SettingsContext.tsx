@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { checkIsMockAuth } from "@/lib/auth/mockAuth"
 
 export interface UserSettings {
   firstName: string
@@ -49,9 +50,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
   React.useEffect(() => {
     setHydrated(true)
 
-    const isMock = typeof window !== 'undefined' 
-      ? (process.env.NEXT_PUBLIC_MOCK_AUTH === "true" || !process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL.includes("placeholder"))
-      : true
+    const isMock = checkIsMockAuth()
 
     const loadSession = async () => {
       let activeUser: any = null
